@@ -10,8 +10,17 @@ class MethodChannelAzureCommunicationCalling extends AzureCommunicationCallingPl
   final methodChannel = const MethodChannel('azure_communication_calling');
 
   @override
-  Future<String?> getPlatformVersion() async {
-    final version = await methodChannel.invokeMethod<String>('getPlatformVersion');
-    return version;
+  Future<String?> startCall({required String chatToken, required String roomId, String? displayName}) async {
+    try {
+      await methodChannel.invokeMethod('startCall', {
+        'chat_token': chatToken,
+        'room_id': roomId,
+        'display_name': displayName,
+      });
+    } on PlatformException catch (ex) {
+      return ex.message;
+    }
+
+    return null;
   }
 }

@@ -23,7 +23,7 @@ abstract class AzureCommunicationCallingPlatform extends PlatformInterface {
     _instance = instance;
   }
 
-  Future<String?> getPlatformVersion() {
+  Future<String?> startCall({required String chatToken, required String roomId, String? displayName}) async {
     throw UnimplementedError('platformVersion() has not been implemented.');
   }
 }
