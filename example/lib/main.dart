@@ -36,16 +36,6 @@ class _HomeScreenState extends State<HomeScreen> {
   final displayNameTextController = TextEditingController();
 
   @override
-  void initState() {
-    super.initState();
-
-    chatTokenTextController.text =
-    "eyJhbGciOiJSUzI1NiIsImtpZCI6IjZDODBDMjc5MUZBMEVCODczMDI2NzlFRDhFQzFDRTE5OTNEQTAwMjMiLCJ4NXQiOiJiSURDZVItZzY0Y3dKbm50anNIT0daUGFBQ00iLCJ0eXAiOiJKV1QifQ.eyJza3lwZWlkIjoiYWNzOmFkMDNjYWU0LWE1NTItNDU5ZS1iZjhlLWUzZjA1MmI1NGU3N18wMDAwMDAyOC1iYTZjLWQxYWEtNDY2Ny00NDNhMGQwMDU5NzgiLCJzY3AiOjE3OTIsImNzaSI6IjE3NTY1NTM1MDQiLCJleHAiOjE3NTY1NTcxMDQsInJnbiI6ImNoIiwiYWNzU2NvcGUiOiJjaGF0LHZvaXAiLCJyZXNvdXJjZUlkIjoiYWQwM2NhZTQtYTU1Mi00NTllLWJmOGUtZTNmMDUyYjU0ZTc3IiwicmVzb3VyY2VMb2NhdGlvbiI6InN3aXR6ZXJsYW5kIiwiaWF0IjoxNzU2NTUzNTA0fQ.ZfUshUoXmFk44YlUJ6fgjdH6v3dn8O_sek93voCEdcWAdK5rWyK6HK8J3iKnSrRWpIvCP42LtWuXSeskpXQX3DxH5_LD5Vj7WvqzxtiLQO2CbPYALW9dPsSswIv58imn7ezOikd90UMaT0DFnPpCW-tgcEAr-x4aAc-moZtR-ulVZtKYB5I1KgC4aymaauYbpf79Wn3nAC792QUzpZVBCilWezL4kRAQSUbRB-4lZzRVUr5dTycpBV7SrmRlQzVtuibk7PpZcdY-OiCQVp-QQZmL5w88P4bzYEDA2DodqHqFdCfO98Typckey5l-ZopRLJxS8poRxhenBkiwmMhe1A";
-
-    roomIdTextController.text = "99582882923860041";
-  }
-
-  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -123,48 +113,53 @@ class _HomeScreenState extends State<HomeScreen> {
             Container(
               margin: const EdgeInsets.all(16.0),
               width: double.infinity,
-              child: ElevatedButton(
+              child: ElevatedButton.icon(
                 onPressed: () async {
                   FocusManager.instance.primaryFocus?.unfocus();
 
                   if (formKey.currentState!.validate()) {
-                    final chatToken = chatTokenTextController.text;
-                    final roomId = roomIdTextController.text;
-                    final displayName = displayNameTextController.text;
+                    final String chatToken = chatTokenTextController.text;
+                    final String roomId = roomIdTextController.text;
+                    final String displayName = displayNameTextController.text;
 
-                    final error = await AzureCommunicationCalling().startCall(
+                    final String? error = await AzureCommunicationCalling().startCall(
                       chatToken: chatToken,
                       roomId: roomId,
                       displayName: displayName,
                     );
 
                     if (error != null) {
-                      showDialog(
-                        context: context,
-                        builder: (context) {
-                          return AlertDialog(
-                            title: Text("Start Chat Fail"),
-                            content: Text(error),
-                            actions: [
-                              TextButton(
-                                onPressed: () {
-                                  Navigator.pop(context);
-                                },
-                                child: Text("Ok"),
-                              ),
-                            ],
-                          );
-                        },
-                      );
+                      showError(title: "Start Chat Fail", error: error);
                     }
                   }
                 },
-                child: Text("Start Call"),
+                label: Text("Start Call"),
+                icon: Icon(Icons.call),
               ),
             ),
           ],
         ),
       ),
+    );
+  }
+
+  void showError({required String title, required String error}) {
+    showDialog(
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          title: Text(title),
+          content: Text(error),
+          actions: [
+            TextButton(
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              child: Text("Ok"),
+            ),
+          ],
+        );
+      },
     );
   }
 }
