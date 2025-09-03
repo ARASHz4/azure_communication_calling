@@ -36,6 +36,25 @@ allprojects {
 }
 ```
 
+- Add proguard rules for release mode in android
+- Create a new file in your android project: android/app/proguard-rules.pro
+- Add the following lines to the proguard-rules.pro
+```
+# ---------- Azure Communication Calling Core ----------
+-keep class com.azure.android.communication.calling.** { *; }
+-keep class com.azure.android.communication.ui.calling.** { *; }
+
+# ---------- Microsoft Media / DL Native SDK ----------
+-keep class com.microsoft.dl.** { *; }
+-keep class com.microsoft.media.** { *; }
+
+# ---------- Skype / Related dependencies ----------
+-keep class com.skype.** { *; }
+
+# ---------- Prevent stripping CallClient ----------
+-keep class com.azure.android.communication.calling.CallClient { public *; }
+```
+
 ### iOS Setup
 
 To access the device's hardware, including the microphone, and camera, update your app's information property list. Set the associated value to a string that's included in the dialog the system uses to request access from the user.
