@@ -70,7 +70,7 @@ Open `ios/Runner/Info.plist` Add the following lines to the top level <dict> sec
 
 ```dart
 final String? error = await AzureCommunicationCalling().startCall(
-  chatToken: 'yourChatToken',
+  token: 'yourToken',
   roomId: 'yourRoomId',
   displayName: 'yourDisplayName',
 );

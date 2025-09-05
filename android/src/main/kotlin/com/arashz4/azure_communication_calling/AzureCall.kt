@@ -7,9 +7,9 @@ import com.azure.android.communication.ui.calling.CallCompositeBuilder
 import com.azure.android.communication.ui.calling.models.CallCompositeRoomLocator
 
 class AzureCall {
-    fun startCallComposite(context: Context, chatToken: String, roomId: String, displayName: String?) : String? {
+    fun startCallComposite(context: Context, token: String, roomId: String, displayName: String?) : String? {
         try {
-            val credential = CommunicationTokenCredential(chatToken);
+            val credential = CommunicationTokenCredential(token);
 
             val callComposite: CallComposite = CallCompositeBuilder()
                 .applicationContext(context)

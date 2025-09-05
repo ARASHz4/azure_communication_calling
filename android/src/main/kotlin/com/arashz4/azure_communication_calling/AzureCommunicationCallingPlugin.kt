@@ -24,13 +24,13 @@ class AzureCommunicationCallingPlugin : FlutterPlugin, MethodCallHandler, Activi
             CallMethod.StartCall.value -> {
                 val arguments = call.arguments as Map<*, *>
 
-                val chatToken = arguments["chat_token"] as? String
+                val token = arguments["token"] as? String
                 val roomId = arguments["room_id"] as? String
                 val displayName = arguments["display_name"] as? String
 
-                if (chatToken != null && roomId != null) {
+                if (token != null && roomId != null) {
                     activity?.let {
-                        val error =  AzureCall().startCallComposite(it, chatToken, roomId, displayName)
+                        val error =  AzureCall().startCallComposite(it, token, roomId, displayName)
                         if (error != null) {
                             result.error("start_call_composite_fail", error, null)
                         }

@@ -10,10 +10,10 @@ class MethodChannelAzureCommunicationCalling extends AzureCommunicationCallingPl
   final methodChannel = const MethodChannel('azure_communication_calling');
 
   @override
-  Future<String?> startCall({required String chatToken, required String roomId, String? displayName}) async {
+  Future<String?> startCall({required String token, required String roomId, String? displayName}) async {
     try {
       await methodChannel.invokeMethod('startCall', {
-        'chat_token': chatToken,
+        'token': token,
         'room_id': roomId,
         'display_name': displayName,
       });

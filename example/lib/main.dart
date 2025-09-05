@@ -31,7 +31,7 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   final formKey = GlobalKey<FormState>();
 
-  final chatTokenTextController = TextEditingController();
+  final tokenTextController = TextEditingController();
   final roomIdTextController = TextEditingController();
   final displayNameTextController = TextEditingController();
 
@@ -56,9 +56,9 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                       height: 200,
                       child: TextFormField(
-                        controller: chatTokenTextController,
+                        controller: tokenTextController,
                         decoration: InputDecoration(
-                          label: Text("Chat Token"),
+                          label: Text("Token"),
                           border: OutlineInputBorder(),
                         ),
                         textAlignVertical: TextAlignVertical.top,
@@ -66,7 +66,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         expands: true,
                         validator: (value) {
                           if (value == null || value.isEmpty) {
-                            return "Enter Chat Token";
+                            return "Enter Token";
                           }
 
                           return null;
@@ -118,18 +118,18 @@ class _HomeScreenState extends State<HomeScreen> {
                   FocusManager.instance.primaryFocus?.unfocus();
 
                   if (formKey.currentState!.validate()) {
-                    final String chatToken = chatTokenTextController.text;
+                    final String token = tokenTextController.text;
                     final String roomId = roomIdTextController.text;
                     final String displayName = displayNameTextController.text;
 
                     final String? error = await AzureCommunicationCalling().startCall(
-                      chatToken: chatToken,
+                      token: token,
                       roomId: roomId,
                       displayName: displayName,
                     );
 
                     if (error != null) {
-                      showError(title: "Start Chat Fail", error: error);
+                      showError(title: "Start Call Fail", error: error);
                     }
                   }
                 },

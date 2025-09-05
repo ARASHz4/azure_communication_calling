@@ -16,8 +16,6 @@ PODS:
     - MicrosoftFluentUI/PopupMenu_ios (= 0.10.0)
   - AzureCore (1.0.0-beta.15)
   - Flutter (1.0.0)
-  - integration_test (0.0.1):
-    - Flutter
   - MicrosoftFluentUI/ActivityIndicator_ios (0.10.0):
     - MicrosoftFluentUI/Core_ios
   - MicrosoftFluentUI/Avatar_ios (0.10.0):
@@ -57,7 +55,6 @@ PODS:
 DEPENDENCIES:
   - azure_communication_calling (from `.symlinks/plugins/azure_communication_calling/ios`)
   - Flutter (from `Flutter`)
-  - integration_test (from `.symlinks/plugins/integration_test/ios`)
 
 SPEC REPOS:
   trunk:
@@ -72,8 +69,6 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/azure_communication_calling/ios"
   Flutter:
     :path: Flutter
-  integration_test:
-    :path: ".symlinks/plugins/integration_test/ios"
 
 SPEC CHECKSUMS:
   azure_communication_calling: a84c5154cb5e2ae060df62bacdc455da09c27919
@@ -82,7 +77,6 @@ SPEC CHECKSUMS:
   AzureCommunicationUICalling: db55e14b203c43d69cbd88054c58a68274713d9f
   AzureCore: ebbf7cf4dfe72afc7584088c38d1c99f5a35d647
   Flutter: cabc95a1d2626b1b06e7179b784ebcf0c0cde467
-  integration_test: 252f60fa39af5e17c3aa9899d35d908a0721b573
   MicrosoftFluentUI: f6db695718efb93f4ca9bdc366c00b80a1f91dba
 
 PODFILE CHECKSUM: 3ba3a73b1b12adcf321a227a745625fe0888cc82

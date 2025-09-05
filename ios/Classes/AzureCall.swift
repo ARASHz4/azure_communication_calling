@@ -2,10 +2,10 @@ import AzureCommunicationCalling
 import AzureCommunicationUICalling
 
 class AzureCall {
-    func startCallComposite(chatToken: String, roomId: String, displayName: String?) -> String? {
+    func startCallComposite(token: String, roomId: String, displayName: String?) -> String? {
         do {
             let callCompositeOptions = CallCompositeOptions(displayName: displayName)
-            let communicationTokenCredential = try CommunicationTokenCredential(token: chatToken)
+            let communicationTokenCredential = try CommunicationTokenCredential(token: token)
             
             let callComposite = CallComposite(credential: communicationTokenCredential, withOptions: callCompositeOptions)
             

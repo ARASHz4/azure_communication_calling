@@ -12,10 +12,10 @@ public class AzureCommunicationCallingPlugin: NSObject, FlutterPlugin {
         switch call.method {
         case CallMethod.startCall.rawValue:
             if let arguments = call.arguments as? Dictionary<String, Any>,
-               let chatToken = arguments["chat_token"] as? String,
+               let token = arguments["token"] as? String,
                let roomId = arguments["room_id"] as? String,
                let displayName = arguments["eventName"] as? String? {
-                let error = AzureCall().startCallComposite(chatToken: chatToken, roomId: roomId, displayName: displayName)
+                let error = AzureCall().startCallComposite(token: token, roomId: roomId, displayName: displayName)
                 
                 if error != nil {
                     result(FlutterError(code: "start_call_composite_fail", message: error, details: nil))
