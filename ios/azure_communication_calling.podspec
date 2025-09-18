@@ -4,7 +4,7 @@
 #
 Pod::Spec.new do |s|
   s.name             = 'azure_communication_calling'
-  s.version          = '0.0.1'
+  s.version          = '1.0.2'
   s.summary          = 'Azure Communication Calling'
   s.description      = <<-DESC
 Azure Communication Calling
@@ -15,8 +15,8 @@ Azure Communication Calling
   s.source           = { :path => '.' }
   s.source_files = 'Classes/**/*'
   s.dependency 'Flutter'
-  s.dependency 'AzureCommunicationUICalling'
-  s.platform = :ios, '15.0'
+  s.dependency 'AzureCommunicationUICalling', '>= 1.14.2', '< 2.0.0'
+  s.platform = :ios, '16.0'
 
   # Flutter.framework does not contain a i386 slice.
   s.pod_target_xcconfig = { 'DEFINES_MODULE' => 'YES', 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'i386' }

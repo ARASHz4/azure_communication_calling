@@ -1,3 +1,6 @@
+## 1.0.2
+- Compatibility with iOS 26
+
 ## 1.0.1
 - Fix Bugs
 
