@@ -16,7 +16,7 @@ You can see Microsoft documentation [here](https://learn.microsoft.com/en-us/azu
 
 ```yaml
 dependencies:
-  azure_communication_calling: ^1.0.2 #latest version
+  azure_communication_calling: ^1.0.3 #latest version
 ```
 
 ### Android Setup
