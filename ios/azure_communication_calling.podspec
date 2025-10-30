@@ -4,7 +4,7 @@
 #
 Pod::Spec.new do |s|
   s.name             = 'azure_communication_calling'
-  s.version          = '1.0.2'
+  s.version          = '1.0.4'
   s.summary          = 'Azure Communication Calling'
   s.description      = <<-DESC
 Azure Communication Calling

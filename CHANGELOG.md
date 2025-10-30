@@ -1,3 +1,6 @@
+## 1.0.4
+- Fix Bugs
+
 ## 1.0.3
 - Update Android azure-communication-ui-calling to 1.14.3-beta.5
 

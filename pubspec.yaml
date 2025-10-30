@@ -1,6 +1,6 @@
 name: azure_communication_calling
 description: "Azure Communication Calling for Flutter"
-version: 1.0.3
+version: 1.0.4
 homepage: https://github.com/ARASHz4/azure_communication_calling
 
 environment:

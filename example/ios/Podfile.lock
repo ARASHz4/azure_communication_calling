@@ -1,5 +1,5 @@
 PODS:
-  - azure_communication_calling (1.0.1):
+  - azure_communication_calling (1.0.3):
     - AzureCommunicationUICalling (< 2.0.0, >= 1.14.2)
     - Flutter
   - AzureCommunicationCalling (2.15.0):
@@ -71,7 +71,7 @@ EXTERNAL SOURCES:
     :path: Flutter
 
 SPEC CHECKSUMS:
-  azure_communication_calling: 5f31b916b1d51a091ace467f32fe03b1c12905bd
+  azure_communication_calling: ce742ca49bdde4555fd64d0e8f2bef45e89f5410
   AzureCommunicationCalling: 96df4da223a0faa2926ff7a99c6960ee1eec14a3
   AzureCommunicationCommon: 945d9b93a4b52f64e8aacdc992fc8d4a80973d9f
   AzureCommunicationUICalling: 98c5473bf94042acc26d684a6ded09fb297187f8
